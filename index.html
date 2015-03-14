@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Yabh by jmdobry</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Yabh</h1>
+        <p>Yet another Binary Heap.</p>
+
+        <p class="view"><a href="https://github.com/jmdobry/yabh">View the Project on GitHub <small>jmdobry/yabh</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jmdobry/yabh/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jmdobry/yabh/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jmdobry/yabh">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="yabh-----" class="anchor" href="#yabh-----" aria-hidden="true"><span class="octicon octicon-link"></span></a>yabh <a href="https://www.npmjs.org/package/yabh"><img src="https://img.shields.io/bower/v/yabh.svg?style=flat-square" alt="bower version"></a> <a href="https://www.npmjs.org/package/yabh"><img src="https://img.shields.io/npm/v/yabh.svg?style=flat-square" alt="npm version"></a> <a href="https://circleci.com/gh/jmdobry/yabh/tree/master"><img src="https://img.shields.io/circleci/project/jmdobry/yabh/master.svg?style=flat-square" alt="Circle CI"></a> <a href="https://www.npmjs.org/package/yabh"><img src="https://img.shields.io/npm/dm/yabh.svg?style=flat-square" alt="npm downloads"></a> <a href="https://github.com/jmdobry/yabh/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+</h2>
+
+<p>Yet another Binary Heap.</p>
+
+<p><strong>Latest Release:</strong> <a href="https://github.com/jmdobry/yabh/releases"><img src="https://img.shields.io/github/release/jmdobry/yabh.svg?style=flat-square" alt="Latest Release"></a></p>
+
+<p><strong>Status:</strong></p>
+
+<p><a href="https://gemnasium.com/jmdobry/yabh"><img src="https://img.shields.io/gemnasium/jmdobry/yabh.svg?style=flat-square" alt="Dependency Status"></a> <a href="https://coveralls.io/r/jmdobry/yabh?branch=master"><img src="https://img.shields.io/coveralls/jmdobry/yabh/master.svg?style=flat-square" alt="Coverage Status"></a> <a href="https://www.codacy.com/public/jasondobry/yabh/dashboard"><img src="https://img.shields.io/codacy/2fb5b2126ab9480883548804d729ebf2.svg?style=flat-square" alt="Codacy"></a></p>
+
+<p><strong>Supported Platforms:</strong></p>
+
+<p><a href="https://github.com/jmdobry/yabh"><img src="https://img.shields.io/badge/Node-0.10%2B-green.svg?style=flat-square" alt="node version"></a> <a href="https://github.com/jmdobry/yabh"><img src="https://img.shields.io/badge/Browser-Chrome%2CFirefox%2CSafari%2COpera%2CIE%209%2B%2CiOS%20Safari%207.1%2B%2CAndroid%20Browser%202.3%2B-green.svg?style=flat-square" alt="browsers"></a></p>
+
+<h3>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h3>
+
+<p><code>bower install --save yabh</code> or <code>npm install --save yabh</code>.</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">import</span> <span class="pl-s1"><span class="pl-pds">'</span>yabh<span class="pl-pds">'</span></span> as BinaryHeap;
+<span class="pl-c">// or</span>
+define([<span class="pl-s1"><span class="pl-pds">'</span>yabh<span class="pl-pds">'</span></span>], <span class="pl-st">function</span> (<span class="pl-vpf">BinaryHeap</span>) { ... });
+<span class="pl-c">// or</span>
+<span class="pl-s">var</span> BinaryHeap <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>yabh<span class="pl-pds">'</span></span>);
+<span class="pl-c">// or</span>
+<span class="pl-s">var</span> BinaryHeap <span class="pl-k">=</span> <span class="pl-s3">window</span>.BinaryHeap;
+
+<span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">4</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">5</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">3</span>);
+heap.peak(); <span class="pl-c">// 1</span></pre></div>
+
+<h3>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
+
+<h5>
+<a id="binaryheapweightfunc-comparefunc" class="anchor" href="#binaryheapweightfunc-comparefunc" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>BinaryHeap([weightFunc][, compareFunc])</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.weightFunc; <span class="pl-c">// function (x) { return x; }</span>
+heap.compareFunc; <span class="pl-c">// function (x, y) { return x === y; }</span></pre></div>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>(<span class="pl-st">function</span> (<span class="pl-vpf">x</span>) { <span class="pl-k">return</span> x.<span class="pl-sc">value</span>; });
+heap.weightFunc; <span class="pl-c">// function (x) { return x.value; }</span>
+heap.compareFunc; <span class="pl-c">// function (x, y) { return x === y; }</span></pre></div>
+
+<pre><code>
+```js
+var heap = new BinaryHeap(null, function (x, y) { return x == y; });
+heap.weightFunc; // function (x) { return x; }
+heap.compareFunc; // function (x, y) { return x == y; }
+</code></pre>
+
+<h5>
+<a id="binaryheappushnode--binaryheappop" class="anchor" href="#binaryheappushnode--binaryheappop" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<code>BinaryHeap#push(node)</code> &amp; <code>BinaryHeap#pop()</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">10</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">4</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 1</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 2</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 4</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 10</span></pre></div>
+
+<h5>
+<a id="binaryheappeak" class="anchor" href="#binaryheappeak" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>BinaryHeap#peak()</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">10</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">4</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.peek(); <span class="pl-c">// 1</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 1</span>
+heap.peek(); <span class="pl-c">// 2</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 2</span>
+heap.peek(); <span class="pl-c">// 4</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 4</span>
+heap.peek(); <span class="pl-c">// 10</span>
+heap.<span class="pl-s3">pop</span>(); <span class="pl-c">// 10</span></pre></div>
+
+<h5>
+<a id="binaryheapremovenode" class="anchor" href="#binaryheapremovenode" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>BinaryHeap#remove(node)</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">10</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.<span class="pl-s3">remove</span>(<span class="pl-c1">10</span>); <span class="pl-c">// 10</span>
+heap.peek(); <span class="pl-c">// 1</span>
+heap.<span class="pl-s3">remove</span>(<span class="pl-c1">1</span>); <span class="pl-c">// 1</span>
+heap.peek(); <span class="pl-c">// 2</span></pre></div>
+
+<h5>
+<a id="binaryheapremoveall" class="anchor" href="#binaryheapremoveall" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>BinaryHeap#removeAll()</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">10</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.removeAll();
+heap.<span class="pl-sc">size</span>(); <span class="pl-c">// 0</span></pre></div>
+
+<h5>
+<a id="binaryheapsize" class="anchor" href="#binaryheapsize" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>BinaryHeap#size()</code>
+</h5>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> heap <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BinaryHeap</span>();
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">1</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">10</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">4</span>);
+heap.<span class="pl-s3">push</span>(<span class="pl-c1">2</span>);
+heap.<span class="pl-sc">size</span>(); <span class="pl-c">// 4</span></pre></div>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Jason Dobry</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jmdobry">jmdobry</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
