@@ -17,7 +17,7 @@ __Supported Platforms:__
 `bower install --save yabh` or `npm install --save yabh`.
 
 ```js
-import 'yabh' as BinaryHeap;
+import BinaryHeap from 'yabh';
 // or
 define(['yabh'], function (BinaryHeap) { ... });
 // or
