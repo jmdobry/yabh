@@ -1,0 +1,31 @@
+{
+  "name": "yabh",
+  "description": "Yet another Binary Heap.",
+  "homepage": "http://jmdobry.github.io/yabh/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmdobry/yabh.git"
+  },
+  "author": {
+    "name": "Jason Dobry",
+    "url": "http://www.pseudobry.com",
+    "email": "jason.dobry@gmail.com"
+  },
+  "main": "./dist/yabh.js",
+  "ignore": [
+    ".idea/",
+    ".*",
+    "*.iml",
+    "src/",
+    "lib/",
+    "doc/",
+    "guide/",
+    "coverage/",
+    "Gruntfile.js",
+    "node_modules/",
+    "test/",
+    "package.json",
+    "karma.conf.js",
+    "karma.start.js"
+  ]
+}
