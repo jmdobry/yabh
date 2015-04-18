@@ -1,6 +1,6 @@
 /*!
  * yabh
- * @version 1.0.0 - Homepage <http://jmdobry.github.io/yabh/>
+ * @version 1.0.1 - Homepage <http://jmdobry.github.io/yabh/>
  * @author Jason Dobry <jason.dobry@gmail.com>
  * @copyright (c) 2015 Jason Dobry 
  * @license MIT <https://github.com/jmdobry/yabh/blob/master/LICENSE>
@@ -11,7 +11,7 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define(factory);
+		define("yabh", factory);
 	else if(typeof exports === 'object')
 		exports["BinaryHeap"] = factory();
 	else
@@ -63,10 +63,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
 	/**
 	 * @method bubbleUp
 	 * @param {array} heap The heap.
@@ -99,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {function} weightFunc The weight function.
 	 * @param {number} n The index of the element to sink down.
 	 */
-	var bubbleDown = function (heap, weightFunc, n) {
+	var bubbleDown = function bubbleDown(heap, weightFunc, n) {
 	  var length = heap.length;
 	  var node = heap[n];
 	  var nodeWeight = weightFunc(node);
@@ -149,74 +152,74 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return x === y;
 	      };
 	    }
-	    if (typeof weightFunc !== "function") {
-	      throw new Error("BinaryHeap([weightFunc][, compareFunc]): \"weightFunc\" must be a function!");
+	    if (typeof weightFunc !== 'function') {
+	      throw new Error('BinaryHeap([weightFunc][, compareFunc]): "weightFunc" must be a function!');
 	    }
-	    if (typeof compareFunc !== "function") {
-	      throw new Error("BinaryHeap([weightFunc][, compareFunc]): \"compareFunc\" must be a function!");
+	    if (typeof compareFunc !== 'function') {
+	      throw new Error('BinaryHeap([weightFunc][, compareFunc]): "compareFunc" must be a function!');
 	    }
 	    this.weightFunc = weightFunc;
 	    this.compareFunc = compareFunc;
 	    this.heap = [];
 	  }
 
-	  _createClass(BinaryHeap, {
-	    push: {
-	      value: function push(node) {
-	        this.heap.push(node);
-	        bubbleUp(this.heap, this.weightFunc, this.heap.length - 1);
-	      }
-	    },
-	    peek: {
-	      value: function peek() {
-	        return this.heap[0];
-	      }
-	    },
-	    pop: {
-	      value: function pop() {
-	        var front = this.heap[0];
-	        var end = this.heap.pop();
-	        if (this.heap.length > 0) {
-	          this.heap[0] = end;
-	          bubbleDown(this.heap, this.weightFunc, 0);
-	        }
-	        return front;
-	      }
-	    },
-	    remove: {
-	      value: function remove(node) {
-	        var length = this.heap.length;
-	        for (var i = 0; i < length; i++) {
-	          if (this.compareFunc(this.heap[i], node)) {
-	            var removed = this.heap[i];
-	            var end = this.heap.pop();
-	            if (i !== length - 1) {
-	              this.heap[i] = end;
-	              bubbleUp(this.heap, this.weightFunc, i);
-	              bubbleDown(this.heap, this.weightFunc, i);
-	            }
-	            return removed;
-	          }
-	        }
-	        return null;
-	      }
-	    },
-	    removeAll: {
-	      value: function removeAll() {
-	        this.heap = [];
-	      }
-	    },
-	    size: {
-	      value: function size() {
-	        return this.heap.length;
-	      }
+	  _createClass(BinaryHeap, [{
+	    key: 'push',
+	    value: function push(node) {
+	      this.heap.push(node);
+	      bubbleUp(this.heap, this.weightFunc, this.heap.length - 1);
 	    }
-	  });
+	  }, {
+	    key: 'peek',
+	    value: function peek() {
+	      return this.heap[0];
+	    }
+	  }, {
+	    key: 'pop',
+	    value: function pop() {
+	      var front = this.heap[0];
+	      var end = this.heap.pop();
+	      if (this.heap.length > 0) {
+	        this.heap[0] = end;
+	        bubbleDown(this.heap, this.weightFunc, 0);
+	      }
+	      return front;
+	    }
+	  }, {
+	    key: 'remove',
+	    value: function remove(node) {
+	      var length = this.heap.length;
+	      for (var i = 0; i < length; i++) {
+	        if (this.compareFunc(this.heap[i], node)) {
+	          var removed = this.heap[i];
+	          var end = this.heap.pop();
+	          if (i !== length - 1) {
+	            this.heap[i] = end;
+	            bubbleUp(this.heap, this.weightFunc, i);
+	            bubbleDown(this.heap, this.weightFunc, i);
+	          }
+	          return removed;
+	        }
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'removeAll',
+	    value: function removeAll() {
+	      this.heap = [];
+	    }
+	  }, {
+	    key: 'size',
+	    value: function size() {
+	      return this.heap.length;
+	    }
+	  }]);
 
 	  return BinaryHeap;
 	})();
 
-	module.exports = BinaryHeap;
+	exports['default'] = BinaryHeap;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ])

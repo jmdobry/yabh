@@ -62,18 +62,34 @@ module.exports = function (grunt) {
           library: 'BinaryHeap'
         },
         module: {
-          loaders: [
-            { test: /(src)(.+)\.js$/, exclude: /node_modules/, loader: 'babel-loader?blacklist=useStrict' }
-          ],
           preLoaders: [
             {
               test: /(src)(.+)\.js$|(test)(.+)\.js$/, // include .js files
               exclude: /node_modules/, // exclude any and all files in the node_modules folder
               loader: "jshint-loader?failOnHint=true"
             }
+          ],
+          loaders: [
+            { test: /(src)(.+)\.js$/, exclude: /node_modules/, loader: 'babel-loader?blacklist=useStrict' }
           ]
         },
         plugins: [
+          {
+            apply: function (compiler) {
+              compiler.plugin('compilation', function (compilation) {
+                compilation.plugin('optimize-chunk-assets', function (chunks, callback) {
+                  chunks.forEach(function (chunk) {
+                    if (chunk.initial) {
+                      chunk.files.forEach(function (file) {
+                        compilation.assets[file].children[0].children[0]._value = compilation.assets[file].children[0].children[0]._value.replace('define(factory)', 'define("yabh", factory)');
+                      });
+                    }
+                  });
+                  callback();
+                });
+              });
+            }
+          },
           new webpack.BannerPlugin(banner)
         ]
       }
