@@ -66,68 +66,68 @@ let bubbleDown = (heap, weightFunc, n) => {
   }
 };
 
-class BinaryHeap {
-  constructor(weightFunc, compareFunc) {
-    if (!weightFunc) {
-      weightFunc = x => x;
-    }
-    if (!compareFunc) {
-      compareFunc = (x, y) => x === y;
-    }
-    if (typeof weightFunc !== 'function') {
-      throw new Error('BinaryHeap([weightFunc][, compareFunc]): "weightFunc" must be a function!');
-    }
-    if (typeof compareFunc !== 'function') {
-      throw new Error('BinaryHeap([weightFunc][, compareFunc]): "compareFunc" must be a function!');
-    }
-    this.weightFunc = weightFunc;
-    this.compareFunc = compareFunc;
-    this.heap = [];
+function BinaryHeap(weightFunc, compareFunc) {
+  if (!weightFunc) {
+    weightFunc = x => x;
   }
-
-  push(node) {
-    this.heap.push(node);
-    bubbleUp(this.heap, this.weightFunc, this.heap.length - 1);
+  if (!compareFunc) {
+    compareFunc = (x, y) => x === y;
   }
-
-  peek() {
-    return this.heap[0];
+  if (typeof weightFunc !== 'function') {
+    throw new Error('BinaryHeap([weightFunc][, compareFunc]): "weightFunc" must be a function!');
   }
-
-  pop() {
-    let front = this.heap[0];
-    let end = this.heap.pop();
-    if (this.heap.length > 0) {
-      this.heap[0] = end;
-      bubbleDown(this.heap, this.weightFunc, 0);
-    }
-    return front;
+  if (typeof compareFunc !== 'function') {
+    throw new Error('BinaryHeap([weightFunc][, compareFunc]): "compareFunc" must be a function!');
   }
-
-  remove(node) {
-    var length = this.heap.length;
-    for (let i = 0; i < length; i++) {
-      if (this.compareFunc(this.heap[i], node)) {
-        let removed = this.heap[i];
-        let end = this.heap.pop();
-        if (i !== length - 1) {
-          this.heap[i] = end;
-          bubbleUp(this.heap, this.weightFunc, i);
-          bubbleDown(this.heap, this.weightFunc, i);
-        }
-        return removed;
-      }
-    }
-    return null;
-  }
-
-  removeAll() {
-    this.heap = [];
-  }
-
-  size() {
-    return this.heap.length;
-  }
+  this.weightFunc = weightFunc;
+  this.compareFunc = compareFunc;
+  this.heap = [];
 }
 
-export default BinaryHeap;
+let BHProto = BinaryHeap.prototype;
+
+BHProto.push = function (node) {
+  this.heap.push(node);
+  bubbleUp(this.heap, this.weightFunc, this.heap.length - 1);
+};
+
+BHProto.peek = function () {
+  return this.heap[0];
+};
+
+BHProto.pop = function () {
+  let front = this.heap[0];
+  let end = this.heap.pop();
+  if (this.heap.length > 0) {
+    this.heap[0] = end;
+    bubbleDown(this.heap, this.weightFunc, 0);
+  }
+  return front;
+};
+
+BHProto.remove = function (node) {
+  var length = this.heap.length;
+  for (let i = 0; i < length; i++) {
+    if (this.compareFunc(this.heap[i], node)) {
+      let removed = this.heap[i];
+      let end = this.heap.pop();
+      if (i !== length - 1) {
+        this.heap[i] = end;
+        bubbleUp(this.heap, this.weightFunc, i);
+        bubbleDown(this.heap, this.weightFunc, i);
+      }
+      return removed;
+    }
+  }
+  return null;
+};
+
+BHProto.removeAll = function () {
+  this.heap = [];
+};
+
+BHProto.size = function () {
+  return this.heap.length;
+};
+
+module.exports = BinaryHeap;
