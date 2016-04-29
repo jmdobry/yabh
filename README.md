@@ -1,17 +1,8 @@
-## yabh [![bower version](https://img.shields.io/bower/v/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![npm version](https://img.shields.io/npm/v/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![Circle CI](https://img.shields.io/circleci/project/jmdobry/yabh/master.svg?style=flat-square)](https://circleci.com/gh/jmdobry/yabh/tree/master) [![npm downloads](https://img.shields.io/npm/dm/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/jmdobry/yabh/blob/master/LICENSE)
+# yabh
+
+[![bower version](https://img.shields.io/bower/v/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![npm version](https://img.shields.io/npm/v/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![Circle CI](https://img.shields.io/circleci/project/jmdobry/yabh/master.svg?style=flat-square)](https://circleci.com/gh/jmdobry/yabh/tree/master) [![npm downloads](https://img.shields.io/npm/dm/yabh.svg?style=flat-square)](https://www.npmjs.org/package/yabh) [![codecov](https://img.shields.io/codecov/c/github/jmdobry/yabh.svg)](https://codecov.io/gh/jmdobry/yabh) [![Codacy](https://img.shields.io/codacy/2fb5b2126ab9480883548804d729ebf2.svg?style=flat-square)](https://www.codacy.com/public/jasondobry/yabh/dashboard)
 
 Yet another Binary Heap.
-
-__Latest Release:__ [![Latest Release](https://img.shields.io/github/release/jmdobry/yabh.svg?style=flat-square)](https://github.com/jmdobry/yabh/releases)
-
-__Status:__
-
-[![Dependency Status](https://img.shields.io/gemnasium/jmdobry/yabh.svg?style=flat-square)](https://gemnasium.com/jmdobry/yabh) [![Coverage Status](https://img.shields.io/coveralls/jmdobry/yabh/master.svg?style=flat-square)](https://coveralls.io/r/jmdobry/yabh?branch=master) [![Codacy](https://img.shields.io/codacy/2fb5b2126ab9480883548804d729ebf2.svg?style=flat-square)](https://www.codacy.com/public/jasondobry/yabh/dashboard)
-
-__Supported Platforms:__
-
-[![node version](https://img.shields.io/badge/Node-0.10%2B-green.svg?style=flat-square)](https://github.com/jmdobry/yabh) [![browsers](https://img.shields.io/badge/Browser-Chrome%2CFirefox%2CSafari%2COpera%2CIE%209%2B%2CiOS%20Safari%207.1%2B%2CAndroid%20Browser%202.3%2B-green.svg?style=flat-square)](https://github.com/jmdobry/yabh)
-
 
 ### Quick Start
 `bower install --save yabh` or `npm install --save yabh`.
@@ -129,7 +120,7 @@ heap.size(); // 4
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jason Dobry
+Copyright (c) 2015-2016 Jason Dobry
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

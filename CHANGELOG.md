@@ -1,3 +1,7 @@
+##### 1.2.0 - 29 April 2016
+
+Switched to Rollup.
+
 ##### 1.1.0 - 10 July 2015
 
 Updated dependencies. Reduced minified file size by 0.5kb.
