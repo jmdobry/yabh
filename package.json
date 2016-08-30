@@ -61,7 +61,7 @@
     "mocha": "3.0.2",
     "nyc": "8.1.0",
     "phantomjs-prebuilt": "2.1.12",
-    "rollup": "0.34.10",
+    "rollup": "0.34.11",
     "rollup-plugin-babel": "2.6.1",
     "standard": "8.0.0",
     "uglify-js": "2.7.3"
